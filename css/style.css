@@ -112,3 +112,95 @@ button:hover {
 .info-box .hidden {
   display: none;
 }
+
+.patient-container {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.patient-container h2 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.patient-form, .search-input {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.patient-form input, .search-input {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #bdc3c7;
+  border-radius: 5px;
+  flex: 1 1 15px;
+}
+
+.patient-form button {
+  padding: 10px 15px;
+  background-color: #2c3e50;
+  color: #ecf0f1;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.patient-form button:hover {
+  background-color: #34495e;
+}
+
+.patient-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.patient-table th, .patient-table td {
+  padding: 10px;
+  border: 1px solid #bdc3c7;
+  text-align: left;
+}
+
+.patient-table th {
+  background-color: #2c3e50;
+  color: #ecf0f1;
+}
+
+.patient-table tr:nth-child(even) {
+  background-color: #f5f6fa;
+}
+
+.patient-table button {
+  padding: 5px 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  margin-right: 5px;
+}
+
+.patient-table .edit-btn {
+  background-color: #3498db;
+  color: #fff;
+}
+
+.patient-table .edit-btn:hover {
+  background-color: #2980b9;
+}
+
+.patient-table .delete-btn {
+  background-color: #e74c3c;
+  color: #fff;
+}
+
+.patient-table .delete-btn:hover {
+  background-color: #c0392b;
+}

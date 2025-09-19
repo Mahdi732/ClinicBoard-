@@ -90,7 +90,6 @@ export function login() {
     }
 
     let hashedInput = await hashPassword(loginPassword);
-
     if (hashedInput === data.password) {
       alert("Connexion réussie !");
       data.lockPasswordInput = 5; 
