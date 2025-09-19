@@ -1,8 +1,9 @@
+// login.js
 export const loginPage = () => {
-  let user = localStorage.getItem("authData") ? JSON.parse(atob(localStorage.getItem("authData"))) : null;
+  let user = localStorage.getItem("clinicApp:data") ? JSON.parse(localStorage.getItem("clinicApp:data")) : null;
 
   if (user) {
-    return   `
+    return `
   <div class="auth-container">
     <header class="auth-header">
       <h1>🔐 Authentification & Sécurité</h1>
@@ -39,53 +40,75 @@ export const loginPage = () => {
       </form>
     </div>`;
   }
-}
+};
 
-function setUpPassword () {
-  const formSetPassword = document.getElementById('setup-form')
-  if (!formSetPassword) return
-  formSetPassword.addEventListener('submit', (e) => {
-    e.preventDefault()
-    let newPassword = document.getElementById('new-password').value.trim()
+export function setUpPassword () {
+  const formSetPassword = document.getElementById('setup-form');
+  if (!formSetPassword) return;
+
+  formSetPassword.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    let newPassword = document.getElementById('new-password').value.trim();
     if (!newPassword) {
-      alert('please enter valid password ')
-      return
+      alert('please enter valid password ');
+      return;
     }
+    let hashed = await hashPassword(newPassword);
     let data = {
-      password : newPassword,
+      password : hashed, 
       lockPasswordInput : 5
-    }
-    localStorage.setItem('clinicApp:data', JSON.stringify(data))
-  })
+    };
+    localStorage.setItem('clinicApp:data', JSON.stringify(data));
+    alert("Mot de passe enregistré !");
+    window.history.pushState({}, "", "/login");
+    urlLocationHandler();
+  });
 }
 
-function login () {
-  const formLogin = document.getElementById('login-form') 
-  if (!loginForm) return
-  formLogin.addEventListener('submit', (e) => {
-    e.preventDefault()
-    let loginPassword = document.getElementById('password').value.trim()
+export function login() {
+  const formLogin = document.getElementById('login-form');
+  if (!formLogin) return;
+
+  const passwordInput = document.getElementById('password');
+  const loginButton = document.getElementById('login-button');
+
+  formLogin.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    let loginPassword = passwordInput.value.trim();
     if (!loginPassword) {
-      alert('please enter valid password')
-      return
-    }
-    let data = JSON.parse(localStorage.getItem('clinicApp:data'))
-
-    if (data.lockPasswordInput == 0) {
-      lockInputs()
+      alert('Veuillez entrer un mot de passe valide');
+      return;
     }
 
-    if (loginPassword == data.password) {
-      data.lockPasswordInput = 5
-    }else {
-      data.lockPasswordInput -= 1
-      document.getElementById('fail-count').textContent = data.lockPasswordInput
-    }
-  })
-}
+    let data = JSON.parse(localStorage.getItem('clinicApp:data'));
+    if (!data) return;
 
-function lockInputs () {
-  document.getElementById('password').disabled = true
-  document.getElementById('login-button').disabled = true
-  document.getElementById('lock-message').classList.remove("hidden")
+    if (data.lockPasswordInput <= 0) {
+      lockInputs();
+      return;
+    }
+
+    let hashedInput = await hashPassword(loginPassword);
+
+    if (hashedInput === data.password) {
+      alert("Connexion réussie !");
+      data.lockPasswordInput = 5; 
+    } else {
+      data.lockPasswordInput -= 1;
+      alert(`Mot de passe incorrect ! Tentatives restantes: ${data.lockPasswordInput}`);
+      document.getElementById('fail-count').textContent = data.lockPasswordInput;
+      if (data.lockPasswordInput <= 0) {
+        lockInputs();
+      }
+    }
+
+    localStorage.setItem('clinicApp:data', JSON.stringify(data));
+  });
+
+  function lockInputs() {
+    passwordInput.disabled = true;
+    loginButton.disabled = true;
+    document.getElementById('lock-message').classList.remove("hidden");
+  }
 }

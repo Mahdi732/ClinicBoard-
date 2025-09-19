@@ -1,6 +1,6 @@
 import { homePage } from "../pages/home.js";
-import { loginPage } from "../pages/login.js";
-import { patientPage } from "../pages/patient.js";
+import { loginPage, login, setUpPassword } from "../pages/login.js";
+import { patientPage, initPatientPage } from "../pages/patient.js";
 
 const urlRoutes = {
   '/': { template: homePage },
@@ -13,6 +13,13 @@ function urlLocationHandler() {
   const route = urlRoutes[location] || urlRoutes['/'];
   const html = route.template(); 
   document.getElementById("root").innerHTML = html;
+
+  if (location === "/login") {
+    setUpPassword();
+    login();
+  }else if (location === "/patient") {
+    initPatientPage();
+  }
 }
 
 document.addEventListener("click", (e) => {
