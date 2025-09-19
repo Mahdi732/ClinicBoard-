@@ -1,172 +1,114 @@
-/* Reset */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 body {
+  margin: 0;
   font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #1976d2, #42a5f5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  background-color: #f5f6fa; 
+  color: #2c3e50;
 }
-
 
 nav {
-  background-color: #1f2937; 
-  padding: 10px 20px;
+  background-color: #2c3e50;
+  padding: 15px 30px;
   display: flex;
-  justify-content: flex-start;
-  gap: 15px; 
-  font-family: Arial, sans-serif;
+  gap: 20px;
+  border-radius: 0 0 8px 8px; 
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-
-nav a {
-  color: #f3f4f6; 
+nav .nav-link {
+  color: #ecf0f1;
   text-decoration: none;
+  font-weight: bold;
   padding: 8px 12px;
-  border-radius: 5px;
-  transition: background-color 0.3s, color 0.3s;
+  border-radius: 4px;
+  transition: background 0.3s, color 0.3s;
 }
 
-
-nav a:hover {
-  background-color: #3b82f6; 
-  color: white;
+nav .nav-link:hover {
+  background-color: #34495e;
+  color: #f1c40f;
 }
 
-
-nav a.active {
-  background-color: #2563eb;
-  color: white;
-  font-weight: bold;
+nav .nav-link.active {
+  background-color: #f1c40f;
+  color: #2c3e50;
 }
 
-
-.login-container {
-  background: #fff;
-  padding: 30px;
-  border-radius: 12px;
-  width: 300px;
-  text-align: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-}
-
-.login-container h2 {
-  margin-bottom: 8px;
-  color: #1976d2;
-}
-
-.subtitle {
-  font-size: 14px;
-  color: #666;
-  margin-bottom: 20px;
-}
-
-form input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  outline: none;
-  transition: 0.2s;
-}
-
-form input:focus {
-  border-color: #1976d2;
-  box-shadow: 0 0 4px rgba(25, 118, 210, 0.3);
-}
-
-form button {
-  width: 100%;
-  padding: 10px;
-  background: #1976d2;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: 0.2s;
-}
-
-form button:hover {
-  background: #125ca1;
-}
-
-.msg {
-  margin-top: 15px;
-  font-size: 13px;
-  color: #555;
-}
-
-.patient-container {
+#root {
   max-width: 800px;
-  margin: 30px auto;
-  font-family: Arial, sans-serif;
+  margin: 40px auto;
   padding: 20px;
-  background-color: #f9fafb;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.auth-container {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  font-family: Arial, sans-serif;
 }
 
-.patient-form {
-  display: flex;
-  gap: 10px;
+.auth-header h1 {
+  margin-top: 0;
+  font-size: 24px;
+  color: #2c3e50;
+}
+
+.auth-header p {
+  color: #7f8c8d;
   margin-bottom: 20px;
-  flex-wrap: wrap;
 }
 
-.patient-form input {
-  flex: 1;
+.auth-box h2 {
+  margin-top: 0;
+  color: #34495e;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+label {
+  font-weight: bold;
+  font-size: 14px;
+  color: #2c3e50;
+}
+
+input {
   padding: 10px;
-  border: 1px solid #d1d5db;
+  font-size: 16px;
+  border: 1px solid #bdc3c7;
   border-radius: 5px;
 }
 
-.patient-form button {
-  padding: 10px 20px;
-  background-color: #3b82f6;
-  color: white;
+button {
+  padding: 12px;
+  font-size: 16px;
+  background-color: #2c3e50;
+  color: #ecf0f1;
   border: none;
-  cursor: pointer;
   border-radius: 5px;
-  transition: background-color 0.3s;
-}
-
-.patient-form button:hover {
-  background-color: #2563eb;
-}
-
-.patient-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.patient-table th, .patient-table td {
-  padding: 12px 15px;
-  border: 1px solid #e5e7eb;
-  text-align: left;
-}
-
-.patient-table th {
-  background-color: #f3f4f6;
-}
-
-.delete-btn {
-  padding: 5px 10px;
-  background-color: #ef4444;
-  color: white;
-  border: none;
-  border-radius: 4px;
   cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
 }
 
-.delete-btn:hover {
-  background-color: #b91c1c;
+button:hover {
+  background-color: #34495e;
 }
 
+.info-box {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #e74c3c;
+}
+
+.info-box .hidden {
+  display: none;
+}

@@ -1,4 +1,4 @@
-export function getPatient () {
+export function patientPage () {
     return `
     <div class="patient-container">
     <h2>Patient Management</h2>
