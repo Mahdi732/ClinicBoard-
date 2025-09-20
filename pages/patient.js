@@ -4,13 +4,15 @@ export function patientPage() {
     return `
     <div class="patient-container">
       <h2>Patient Management</h2>
-
-      <form class="patient-form" id="patient-form">
+        <div class="add-patient-wrapper">
+          <button type="button" class="add-patient-btn">Add Patient</button>
+        </div>
+      <form class="patient-form hidden" id="patient-form">
         <input type="text" placeholder="Full Name" id="name" required>
         <input type="text" placeholder="Phone" id="phone" required>
         <input type="email" placeholder="Email" id="email">
         <input type="text" placeholder="Notes" id="notes">
-        <button type="submit">Add Patient</button>
+        <button type="submit">Create</button>
       </form>
 
       <input type="text" id="search-input" placeholder="Search by name or phone" class="search-input">
@@ -45,6 +47,8 @@ export function patientPage() {
     </div>
     `;
 }
+
+
 
 export function initPatientPage() {
     const form = document.getElementById('patient-form');
@@ -115,5 +119,11 @@ export function initPatientPage() {
             p.phone.includes(term)
         );
         renderTable(filtered);
+    });
+
+    document.querySelector('.add-patient-btn').addEventListener('click', (e) => {
+      e.preventDefault();
+      const form = document.getElementById('patient-form');
+      form.classList.toggle('hidden');
     });
 }
