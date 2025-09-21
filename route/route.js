@@ -1,11 +1,13 @@
 import { homePage } from "../pages/home.js";
 import { loginPage, login, setUpPassword } from "../pages/login.js";
 import { patientPage, initPatientPage } from "../pages/patient.js";
+import { appointmentPage, initAppointmentPage} from "../pages/appointments.js";
 
 const urlRoutes = {
   '/': { template: homePage },
   '/login': { template: loginPage },
-  '/patient': { template: patientPage }
+  '/patient': { template: patientPage },
+  '/appointment' : { template : appointmentPage}
 };
 
 function urlLocationHandler() {
@@ -19,6 +21,8 @@ function urlLocationHandler() {
     login();
   }else if (location === "/patient") {
     initPatientPage();
+  }else if (location === "/appointment") {
+    initAppointmentPage()
   }
 }
 
