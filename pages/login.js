@@ -1,4 +1,3 @@
-// login.js
 export const loginPage = () => {
   let user = localStorage.getItem("clinicApp:data") ? JSON.parse(localStorage.getItem("clinicApp:data")) : null;
 
@@ -46,14 +45,24 @@ export function setUpPassword () {
   const formSetPassword = document.getElementById('setup-form');
   if (!formSetPassword) return;
 
-  formSetPassword.addEventListener('submit', async (e) => {
+  formSetPassword.addEventListener('submit', (e) => {
     e.preventDefault();
     let newPassword = document.getElementById('new-password').value.trim();
     if (!newPassword) {
       alert('please enter valid password ');
       return;
     }
-    let hashed = await hashPassword(newPassword);
+    function hashPassword(password) {
+      const salt = "clinic2025"; 
+      let hash = 0;
+      const combined = password + salt;
+      for (let i = 0; i < combined.length; i++) {
+        hash += combined.charCodeAt(i) * (i + 1);
+      }
+      hash = hash * 13;
+      return hash.toString(16);
+    }
+    let hashed = hashPassword(newPassword);
     let data = {
       password : hashed, 
       lockPasswordInput : 5
@@ -72,7 +81,7 @@ export function login() {
   const passwordInput = document.getElementById('password');
   const loginButton = document.getElementById('login-button');
 
-  formLogin.addEventListener('submit', async (e) => {
+  formLogin.addEventListener('submit', (e) => {
     e.preventDefault();
 
     let loginPassword = passwordInput.value.trim();
@@ -89,7 +98,18 @@ export function login() {
       return;
     }
 
-    let hashedInput = await hashPassword(loginPassword);
+    function hashPassword(password) {
+      const salt = "clinic2025"; 
+      let hash = 0;
+      const combined = password + salt;
+      for (let i = 0; i < combined.length; i++) {
+        hash += combined.charCodeAt(i) * (i + 1);
+      }
+      hash = hash * 13;
+      return hash.toString(16);
+    }
+
+    let hashedInput = hashPassword(loginPassword);
     if (hashedInput === data.password) {
       alert("Connexion réussie !");
       data.lockPasswordInput = 5; 
