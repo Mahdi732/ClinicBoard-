@@ -294,3 +294,294 @@ nav {
 .delete-btn:hover {
   background-color: #c0392b;
 }
+
+.patient-table td .action-btns {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.patient-table td .action-btns button {
+  padding: 5px 8px;
+  font-size: 0.85rem;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.patient-table td .action-btns .edit-btn {
+  background-color: #3498db;
+  color: #fff;
+}
+
+.patient-table td .action-btns .edit-btn:hover {
+  background-color: #2980b9;
+}
+
+.patient-table td .action-btns .delete-btn {
+  background-color: #e74c3c;
+  color: #fff;
+}
+
+.patient-table td .action-btns .delete-btn:hover {
+  background-color: #c0392b;
+}
+
+.appointment-container {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  font-family: Arial, sans-serif;
+}
+
+.appointment-container h2 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.add-appointment-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.add-appointment-btn {
+  padding: 12px 20px;
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.add-appointment-btn:hover {
+  background-color: #0056b3;
+}
+
+.appointment-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+  padding: 15px;
+  background: #f9f9f9;
+  border-radius: 6px;
+  border: 1px solid #eee;
+  margin-bottom: 20px;
+}
+
+.appointment-form.hidden {
+  display: none;
+}
+
+.appointment-form input,
+.appointment-form select,
+.appointment-form button {
+  padding: 8px;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.appointment-form button {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+.appointment-form button:hover {
+  background-color: #1e7e34;
+}
+
+.filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filters input,
+.filters select {
+  padding: 6px 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 0.9rem;
+}
+
+.appointment-table, .agenda-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 25px;
+}
+
+.appointment-table th, .appointment-table td,
+.agenda-table th, .agenda-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+.appointment-table th, .agenda-table th {
+  background-color: #2c3e50;
+  color: #fff;
+}
+
+.appointment-table tr:nth-child(even),
+.agenda-table tr:nth-child(even) {
+  background-color: #f5f6fa;
+}
+
+.action-btns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+}
+
+.action-btns button {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.action-btns button:hover {
+  transform: scale(1.1);
+}
+
+.edit-btn { background-color: #3498db; color: #fff; }
+.delete-btn { background-color: #e74c3c; color: #fff; }
+.cancel-btn { background-color: #95a5a6; color: #fff; }
+.noshow-btn { background-color: #e67e22; color: #fff; }
+
+.agenda-table th {
+  background-color: #34495e;
+  color: #fff;
+}
+
+.agenda-table td {
+  background-color: #fafafa;
+}
+
+.finance-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+h2 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 25px;
+}
+
+h3 {
+  color: #34495e;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+/* Forms */
+.add-finance-wrapper {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #2c3e50;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #34495e;
+}
+
+.finance-form {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.finance-form.hidden {
+  display: none;
+}
+
+.finance-form input {
+  padding: 8px 10px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid #bdc3c7;
+  flex: 1 1 150px;
+}
+
+.finance-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.finance-table th, .finance-table td {
+  padding: 10px;
+  border: 1px solid #bdc3c7;
+  text-align: left;
+}
+
+.finance-table th {
+  background-color: #2c3e50;
+  color: #ecf0f1;
+}
+
+.finance-table tr:nth-child(even) {
+  background-color: #f5f6fa;
+}
+
+/* Budget Summary */
+#budget-summary {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #ecf0f1;
+  border-radius: 6px;
+}
+
+#budget-summary p {
+  margin: 5px 0;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+#budget-summary span {
+  color: #27ae60;
+}
+
+#budget-summary span#total-depenses {
+  color: #e74c3c;
+}
+
+#budget-summary span#budget-solde {
+  color: #2980b9;
+}

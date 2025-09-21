@@ -37,8 +37,10 @@ export function patientPage() {
               <td>${p.email}</td>
               <td>${p.notes || ''}</td>
               <td>
-                <button class="edit-btn">Edit</button>
-                <button class="delete-btn">Delete</button>
+                <div class="action-btns">
+                  <button class="edit-btn">Edit</button>
+                  <button class="delete-btn">Delete</button>
+                </div>
               </td>
             </tr>
           `).join('')}

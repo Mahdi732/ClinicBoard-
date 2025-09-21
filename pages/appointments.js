@@ -68,10 +68,12 @@ export function appointmentPage() {
               <td>${a.datetime}</td>
               <td>${a.status}</td>
               <td>
-                <button class="edit-btn">Modifier</button>
-                <button class="delete-btn">Supprimer</button>
-                <button class="cancel-btn">Annuler</button>
-                <button class="noshow-btn">No-Show</button>
+                <div class="action-btns">
+                  <button class="edit-btn"><i class="fa fa-pencil"></i></button>
+                  <button class="delete-btn"><i class="fa fa-trash"></i></button>
+                  <button class="cancel-btn"><i class="fa fa-times"></i></button>
+                  <button class="noshow-btn"><i class="fa fa-user-times"></i></button>
+                </div>
               </td>
             </tr>
           `).join('')}

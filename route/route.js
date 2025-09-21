@@ -2,12 +2,14 @@ import { homePage } from "../pages/home.js";
 import { loginPage, login, setUpPassword } from "../pages/login.js";
 import { patientPage, initPatientPage } from "../pages/patient.js";
 import { appointmentPage, initAppointmentPage} from "../pages/appointments.js";
+import {financePage, initFinancePage} from "../pages/finance.js";
 
 const urlRoutes = {
   '/': { template: homePage },
   '/login': { template: loginPage },
   '/patient': { template: patientPage },
-  '/appointment' : { template : appointmentPage}
+  '/appointment' : { template : appointmentPage},
+  '/finance' : {template : financePage}
 };
 
 function urlLocationHandler() {
@@ -23,6 +25,8 @@ function urlLocationHandler() {
     initPatientPage();
   }else if (location === "/appointment") {
     initAppointmentPage()
+  }else if (location === "/finance") {
+    initFinancePage();
   }
 }
 
