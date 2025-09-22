@@ -3,13 +3,15 @@ import { loginPage, login, setUpPassword } from "../pages/login.js";
 import { patientPage, initPatientPage } from "../pages/patient.js";
 import { appointmentPage, initAppointmentPage} from "../pages/appointments.js";
 import {financePage, initFinancePage} from "../pages/finance.js";
+import {dashboardPage} from "../pages/dashboard.js";
 
 const urlRoutes = {
   '/': { template: homePage },
   '/login': { template: loginPage },
   '/patient': { template: patientPage },
   '/appointment' : { template : appointmentPage},
-  '/finance' : {template : financePage}
+  '/finance' : {template : financePage},
+  '/dashboard' : {template : dashboardPage}
 };
 
 function urlLocationHandler() {
@@ -27,6 +29,15 @@ function urlLocationHandler() {
     initAppointmentPage()
   }else if (location === "/finance") {
     initFinancePage();
+  }
+
+  const data = JSON.parse(localStorage.getItem('clinicApp:data')) || {};
+  if (data.isLoggedIn) {
+    const loginNavLink = document.querySelector('nav .nav-link[href="/login"]');
+    if (loginNavLink) {
+      loginNavLink.textContent = "Dashboard";
+      loginNavLink.href = "/dashboard";
+    }
   }
 }
 

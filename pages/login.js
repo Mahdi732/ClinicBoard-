@@ -112,7 +112,17 @@ export function login() {
     let hashedInput = hashPassword(loginPassword);
     if (hashedInput === data.password) {
       alert("Connexion réussie !");
-      data.lockPasswordInput = 5; 
+      data.lockPasswordInput = 5;
+      
+      data.isLoggedIn = true;
+      localStorage.setItem('clinicApp:data', JSON.stringify(data));
+
+      const loginNavLink = document.querySelector('nav .nav-link[href="/login"]');
+      if (loginNavLink) {
+        loginNavLink.textContent = "Dashboard";
+        loginNavLink.href = "/dashboard";
+      }
+
     } else {
       data.lockPasswordInput -= 1;
       alert(`Mot de passe incorrect ! Tentatives restantes: ${data.lockPasswordInput}`);
@@ -120,9 +130,8 @@ export function login() {
       if (data.lockPasswordInput <= 0) {
         lockInputs();
       }
+      localStorage.setItem('clinicApp:data', JSON.stringify(data));
     }
-
-    localStorage.setItem('clinicApp:data', JSON.stringify(data));
   });
 
   function lockInputs() {
@@ -131,3 +140,4 @@ export function login() {
     document.getElementById('lock-message').classList.remove("hidden");
   }
 }
+
